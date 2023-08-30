@@ -1,0 +1,3 @@
+30 AUG 23 -
+1. Learning to use git and github.
+2. How to push a repository in git.
