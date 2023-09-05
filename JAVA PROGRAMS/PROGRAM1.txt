@@ -1,0 +1,89 @@
+//Create a class representing a "Person" with attributes like name, 
+//age, and address. Instantiate multiple "Person" objects and display 
+//their details.
+
+class Person{
+    private String name, address;
+    private int age;
+    public void nameaddrage(String name, String address, int age)
+    {
+        this.name = name;
+        this.address = address;
+        this.age = age;
+    }
+    public void display()
+    {
+        System.out.println("Name "+ name + '\n' +"Address "+address + '\n' +"Age "+age+'\n');
+    }
+}
+
+public class Main{
+    public static void main(String args[])
+    {
+        Person p1 = new Person();
+        Person p2 = new Person();
+        p1.nameaddrage("Lappu","Raghogarh",24);
+        p1.display();
+        p2.nameaddrage("Kappu","Guna",34);
+        p2.display();
+    }
+}
+
+LEARNINGS
+
+1. Use a constructor to initialize objects: Instead of having a separate 
+method nameaddrage to set the attributes of a Person, it's a good 
+practice to use a constructor for this purpose. This ensures that a 
+Person object is properly initialized when created.
+
+2. Make class attributes final: It's a good practice to make class attributes 
+(name, address, and age) final if they should not change after initialization.
+
+3. Add getters and setters: Encapsulate the attributes by adding getter and 
+setter methods for each attribute. This allows for better control and validation 
+of attribute values.
+
+4. Improve naming conventions: Use meaningful names for methods and variables. 
+For example, instead of nameaddrage, you can use setName, setAddress, 
+and setAge for setter methods.
+
+class Person {
+    private final String name;
+    private final String address;
+    private final int age;
+
+    public Person(String name, String address, int age) {
+        this.name = name;
+        this.address = address;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Address: " + address);
+        System.out.println("Age: " + age + '\n');
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p1 = new Person("Lappu", "Raghogarh", 24);
+        p1.display();
+        Person p2 = new Person("Kappu", "Guna", 34);
+        p2.display();
+    }
+}
+
+

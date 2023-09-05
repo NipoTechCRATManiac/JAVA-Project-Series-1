@@ -1,0 +1,87 @@
+//Implement a class to represent a "Bank Account" with methods for 
+//deposit, withdrawal, and checking the account balance.
+
+class BankAccount{
+    private int balance;
+    public BankAccount(int balance)
+    {
+        this.balance = balance;
+    }
+    public int getbalance(){return balance;}
+    public void deposit(int money)
+    {
+        balance+=money;
+    }
+    public void withdrawal(int money)
+    {
+        balance-=money;
+    }
+}
+public class Main{
+    public static void main(String args[])
+    {
+        BankAccount b1 = new BankAccount(5000);
+        b1.deposit(200);
+        b1.withdrawal(50);
+        System.out.println("Money remaining "+b1.getbalance());
+    }
+}
+
+LEARNINGS
+
+Your code for representing a bank account is a good start, but there are a few improvements 
+and enhancements you can make to make it more robust and in line with best practices:
+
+1. Handling Negative Balances: Ensure that the account balance cannot go negative when a 
+withdrawal is made. You can add a check for this.
+
+2. Use double for Balance: Represent the balance using the double data type to allow for 
+decimal values in the balance.
+
+3. Error Handling: Implement error handling for invalid deposit or withdrawal amounts. You 
+can throw exceptions or return error codes if an operation fails.
+
+4. Separation of Concerns: It's a good practice to separate the account management logic 
+from the user interface. Create a separate class for managing accounts and a different class 
+for the user interface.
+
+//Implement a class to represent a "Bank Account" with methods for 
+//deposit, withdrawal, and checking the account balance.
+
+class BankAccount{
+    private Double balance;
+    public BankAccount(double balance)
+    {
+        this.balance = balance;
+    }
+    public Double getbalance(){return balance;}
+    public void deposit(int money)
+    {
+        balance+=money;
+    }
+    public void withdrawal(int money)
+    {
+        if(balance<money)
+        {
+            //System.out.println("ERROR NOT ENOUGH BALANCE ");
+            throw new IllegalArgumentException("NOT ENOUGH BALANCE");
+        }
+        else{
+        balance-=money;
+        }
+    }
+}
+public class Main{
+    public static void main(String args[])
+    {
+        try{
+        BankAccount b1 = new BankAccount(5000);
+        b1.deposit(200);
+        b1.withdrawal(5200);
+        System.out.println("Money remaining "+b1.getbalance());}
+        catch(IllegalArgumentException e)
+        {
+            System.out.println("ERROR: "+e.getMessage());
+        }
+    }
+}
